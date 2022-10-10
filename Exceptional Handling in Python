@@ -1,0 +1,292 @@
+Exceptional Handling in Python :
+Exception Handling
+ 
+An Exception (error) is an event due to which the normal flow of the program's instructions gets disrupted.
+Errors in Python can be of the following two types i.e. Syntax errors and Exceptions.
+•	While exceptions are raised when some internal events occur which changes the normal flow of the program.
+•	On the other hand, Errors are those type of problems in a program due to which the program will stop the execution.
+ 
+Difference between Syntax Errors and Exceptions
+ 
+Syntax Error: As the name that it has suggests that this error is caused by the wrong syntax in the code. It leads to the termination of the program.
+ 
+Example:
+ 
+Consider the given code snippet:
+ 
+val = 10
+
+if(val > 20)
+  print("Example")
+ 
+We will get the output as:
+ 
+Output:
+ 
+SyntaxError: invalid syntax
+ 
+The syntax error is because there should be a “:” (colon) at the end of an if statement. Since that is not present in the program, it gives a syntax error.
+ 
+Exceptions: Exceptions are raised when the program is syntactically correct but the code resulted in an error. This error does not stop the execution of the program, however, it changes the normal flow of the program.
+ 
+Example:
+ 
+Consider the given code snippet:
+ 
+balance = 10000 
+rem = balance / 0 
+print(rem)
+ 
+We will get the output as:
+ 
+Output:
+ 
+ZeroDivisionError: division by zero
+ 
+The above example raised the ZeroDivisionError exception, as we are trying to divide a number by 0 which is not defined and arithmetically not possible.
+ 
+
+Exceptions in Python
+ 
+•	Python has many built-in exceptions that are raised when your program encounters an error (something in the program goes wrong).
+•	When these exceptions occur, the Python interpreter stops the current process and passes it to the calling process until it is handled.
+•	If not handled, the program will crash.
+•	For example, let us consider a program where we have a function A that calls function B, which in turn calls function C. If an exception occurs in function C but is not handled in C, the exception passes to B and then to A.
+•	If never handled, an error message is displayed and the program comes to a sudden unexpected halt.
+ 
+Some Common Exceptions
+ 
+A list of common exceptions that can be thrown from a standard Python program is given below.
+•	ZeroDivisionError: This occurs when a number is divided by zero.
+•	NameError: It occurs when a name is not found. It may be local or global.
+•	IndentationError: It occurs when incorrect indentation is given.
+•	IOError: It occurs when an Input-Output operation fails.
+•	EOFError: It occurs when the end of the file is reached, and yet operations are being performed.
+
+Catching Exceptions
+ 
+In Python, exceptions can be handled using try-except blocks.
+•	If the Python program contains suspicious code that may throw the exception, we must place that code in the try block.
+•	The try block must be followed by the except statement, which contains a block of code that will be executed in case there is some exception in the try block.
+•	We can thus choose what operations to perform once we have caught the exception.
+
+ 
+ 
+Syntax:
+ 
+try:
+       # Some Code.... 
+       
+except:
+       # optional block
+       # Handling of exception (if required)
+    
+Example:
+   
+l = ['a', 0, 2]
+
+for ele in l:
+	try:
+   		print("The entry is", ele) 
+   		r = 1/int(ele)
+   		
+	except Exception as e: #Using Exception class 
+   		print("Oops!", e.__class__, "occurred.") 
+   		print("Next entry.")
+   		print()
+   		
+	print("The reciprocal of", ele, "is", r)
+ 
+We get the output to this code as:
+ 
+The entry is a
+Oops! <class 'ValueError'>occurred.
+ 
+The entry is 0 
+Oops! <class 'ZeroDivisonError'>occured.
+ 
+The entry is 2 T
+The reciprocal of 2 is 0.5
+•	In this program, we loop through the values of a list l.
+•	As previously mentioned, the portion that can cause an exception is placed inside the try block.
+•	If no exception occurs, the except block is skipped and normal flow continues(for last value).
+•	But if any exception occurs, it is caught by the except block (first and second values).
+•	Here, we print the name of the exception using the exc_info() function inside sys module.
+•	We can see that element “a” causes ValueError and 0 causes ZeroDivisionError.
+ 
+Every exception in Python inherits from the base Exception class. Thus we can write the above code as:
+ 
+l = ['a', 0, 2]
+for ele in l:
+ try:
+     print("The entry is", ele)
+     r = 1/int(ele)
+    
+ except Exception as e: #Using Exception class
+    
+     print("Oops!", e.__class__, "occurred.")
+     print("Next entry.")
+     print()
+        
+print("The reciprocal of", ele, "is", r)
+ 
+Output:
+ 
+This program has the same output as the above program.
+ 
+Catching Specific Exceptions in Python
+ 
+•	In the above example, we did not mention any specific exception in the except clause.
+•	This is not a good programming practice as it will catch all exceptions and handle every case in the same way.
+•	We can specify which exceptions an except clause should catch.
+•	A try clause can have any number of except clauses to handle different exceptions, however, only one will be executed in case an exception occurs.
+•	You can use multiple except blocks for different types of exceptions.
+•	We can even use a tuple of values to specify multiple exceptions in an except clause. Here is an example to understand this better:
+ 
+Syntax:
+ 
+try:
+       # Some Code.... 
+except:
+       # optional block
+       # Handling of exception (if required)
+ 
+Example:
+     
+try:
+    a=10/0
+    
+except(ArithmeticError, IOError):
+    print("Arithmetic Exception")
+ 
+Output:
+ 
+Arithmetic Exception
+
+
+try-except-else Statements
+ 
+We can also use the else statement with the try-except statement in which, we can place the code which will be executed in the scenario if no exception occurs in the else block. The syntax is given below:
+
+ 
+ 
+Syntax:
+ 
+try:
+       # Some Code.... 
+       
+except:
+       # optional block
+       # Handling of exception (if required)
+       
+else:
+       # execute if no exception
+Consider the example code to understand this better:
+ 
+Example:
+     
+try:
+    c = 2/1
+    
+except Exception as e:
+    print("can't divide by zero")
+    print(e)
+    
+else:
+    print("Hi I am else block")
+ 
+Output:
+ 
+Hi I am else block
+ 
+We get this output because there is no exception in the try block and hence the else block is executed. If there was an exception in the try block, the else block will be skipped and except block will be executed.
+
+
+finally Statement
+
+ 
+Syntax:
+ 
+try:
+       # Some Code.... 
+       
+except:
+       # optional block
+       # Handling of exception (if required)
+       
+else:
+       # execute if no exception
+       
+finally:
+      # Some code .....(always executed)
+ 
+The try statement in Python can have an optional finally clause. This clause is executed no matter what and is generally used to release external resources. Here is an example of file operations to illustrate this:
+ 
+Let’s first understand how the try and except works –
+•	First, the try clause is executed i.e. the code between try and except clause.
+•	If there is no exception, then only the try clause will run, except the clause will not get executed.
+•	If any exception occurs, the try clause will be skipped and except clause will run.
+•	If any exception occurs, but the except clause within the code doesn’t handle it, it is passed on to the outer try statements. If the exception is left unhandled, then the execution stops.
+•	A try statement can have more than one except clause.
+ 
+Example: Let us try to take user integer input and throw the exception in except block.
+ 
+# Python code to illustrate 
+# working of try() 
+
+def divide(x, y): 
+
+	try: 
+		# Floor Division : Gives only Fractional 
+		# Part as Answer 
+		result = x // y
+ 
+	except ZeroDivisionError: 
+		print("Sorry ! You are dividing by zero ") 
+	else:
+		print("Yeah ! Your answer is :", result) 
+	finally: 
+		# this block is always executed 
+		# regardless of exception generation. 
+		print('This is always executed') 
+	
+# Look at parameters and note the working of Program 
+divide(3, 2) 
+divide(3, 0)
+ 
+Output:
+ 
+Yeah! Your answer is: 1
+This is always executed
+Sorry! You are dividing by zero 
+This is always executed
+ 
+Raising Exceptions in Python
+ 
+In Python programming, exceptions are raised when errors occur at runtime. We can also manually raise exceptions using the raise keyword. We can optionally pass values to the exception to clarify why that exception was raised. Given below are some examples to help you understand this better
+ 
+>>> raise KeyboardInterrupt
+Traceback (most recent call last):
+...
+KeyboardInterrupt
+ 
+>>> raise MemoryError("This is an argument")
+Traceback (most recent call last):
+...
+MemoryError: This is an argument
+ 
+Now, consider the given code snippet:
+ 
+Example:
+ 
+try:
+    a = -2
+    if a <= 0:
+        raise ValueError("That is not a positive number!")
+    
+except ValueError as ve:
+    print(ve)
+ 
+Output:
+ 
+That is not a positive number!
