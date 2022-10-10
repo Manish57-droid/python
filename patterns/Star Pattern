@@ -1,0 +1,17 @@
+
+# python3 code to print pyramid pattern using while loop
+ 
+# input
+n=5
+ 
+i=1;j=0
+# while loop check the condition until the
+# condition become false. if it is true then
+# enter in to loop and print the pattern
+while(i<=n):
+    while(j<=i-1):
+        print("* ",end="")
+        j+=1
+     # printing next line for each row
+    print("\r")
+    j=0;i+=1
