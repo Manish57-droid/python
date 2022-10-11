@@ -1,0 +1,17 @@
+def sign(n):
+    if(~n.isdigit()):
+        return ""
+    if n>0:
+        return 'p'
+    if n<0:
+        return 'n'
+    return 'z'
+def switch(no):
+    switch={
+       'p': "Positive",
+       'n': "Negative",
+       'z': "Zero",
+       }
+    return switch.get(sign(no),"Invalid input")
+switch(4)
+switch('l')
