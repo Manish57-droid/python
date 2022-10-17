@@ -1,26 +1,26 @@
+// Star Pattern(Half Pyramid)
+
+//*
+//* *
+//* * *
+//* * * *
+//* * * * *
+
 #include <stdio.h>
 
 int main() {
-
-   int i, j, rows;
-
-   printf("Enter the number of rows: ");
-
-   scanf("%d", &rows);
-
-   for (i = 1; i <= rows; ++i) {
-
-      for (j = 1; j <= i; ++j) {
-
-         printf("* ");
-
-      }
-
-      printf("\n");
-
+   int n;
+   scanf("%d", &n); // enter the no. of rows
+   for (int i = 1; i <= n; ++i) // to print no. of rows
+   {
+        for (int j = 1; j <= i; ++j) // to print column
+        {
+            printf("* ");
+        }
+        printf("\n");
    }
-
    return 0;
-
 }
+
+
 
