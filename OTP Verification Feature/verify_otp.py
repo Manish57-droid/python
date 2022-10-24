@@ -16,6 +16,6 @@ emailid = input("Enter your Email Id: ")
 s.sendmail('&&&&&&&&&&&',emailid,msg)
 a = input("Enter Your OTP >>: ")
 if a == OTP:
-    print("Verified Successfully")
+    print("Verified")
 else:
     print("Please Check your OTP again. Verification failed.")
