@@ -1,8 +1,0 @@
-define si(p,r,t):
-  return (p*r*t)/100
-
-p=int(input("Enter the principle amount: "))
-r=float(input("Enter the rate of interest: "))
-t=int(input("Enter the  time: "))
-simple_interest=si(p,r,t)
-print("\nSimple Interest for given data= ", si)
