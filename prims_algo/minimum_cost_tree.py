@@ -1,5 +1,7 @@
 #Finding Minimum Cost Spanning Tree of a given undirected graph using Prim’s algorithm.
-
+#minimum cost spanning tree:The Minimum Spanning Tree is the one whose cumulative edge
+#weights have the smallest value, however. Think of it as the least cost path that goes
+#through the entire graph and touches every vertex.
 ##LOGIC:
 # 1) Create a set Sthat keeps track of vertices already included in MST.
 # 2) Assign a key value to all vertices in the input graph. Initialize all key values as INFINITE. 
