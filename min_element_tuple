@@ -1,0 +1,8 @@
+tuple1, tuple2 = ('maths', 'che', 'phy', 'bio'), (456, 700, 200)
+print ("min value element : ", min(tuple1))
+print ("min value element : ", min(tuple2))
+
+#min value element :  bio
+#min value element :  200
+
+# The min() method returns the elements from the tuple with minimum value.
