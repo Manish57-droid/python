@@ -1,0 +1,85 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css button border animation on howar</title>
+    <link rel="stylesheet" href="button.css">
+    
+</head>
+<body>
+    <center><a href="#">Button 
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </a>
+
+    </center>
+</body>
+</html>
+css
+*{
+    margin:0px ;
+    padding:0px ;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vh;
+    background: #d21de2;
+    /* background color */
+}
+a{
+    position: relative;
+    display: inline-block;
+color: rgb(245, 59, 26);
+/* background button */
+;
+    font-size: 1.5em;
+    letter-spacing:.1em;
+    text-decoration: none;
+text-transform: uppercase;
+background: #232328;
+border-radius:70px;
+top: 200px;
+padding: 20px 40px;
+transition: .5s;
+}
+a:hover{
+    color: rgb(0, 238, 226);
+    letter-spacing: .30em;
+}
+a span {
+    position: absolute;
+    display: block;
+    background: #1eff00;
+
+}
+a span:nth-child(1){
+left:0;
+top:0;
+width:60%;
+height: 1.5px;
+transform: scaleX(0);
+transition:transform.5s;
+}
+a:hover span:nth-child(1){
+    transform: scaleX(1);
+    transform-origin: right;
+}
+a span span:nth-child(2){
+    right:0 ;
+    top:0 ;
+    width: 60%;
+    height: 1.5em;
+    transform: scaleX(5);
+    transition: transform.10s;
+    transform-origin:left ;
+}
